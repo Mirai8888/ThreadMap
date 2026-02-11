@@ -168,9 +168,23 @@ The Seithar Group operates at convergence of:
 
 Methodology: Binding and shaping of informational threads across domain boundaries.
 
-Contact: seithar.com
+Contact: [seithar.com](https://seithar.com)
 
-認知作戦
+## CONNECT
+
+| Channel | Link |
+|---------|------|
+| Discord | [discord.gg/MktZyb2bvx](https://discord.gg/MktZyb2bvx) |
+| Mirai Junsei (未来純正) | [x.com/gOPwbi7qqtWeD9o](https://x.com/gOPwbi7qqtWeD9o) |
+| Seithar Group | [x.com/SeitharGroup](https://x.com/SeitharGroup) |
+| Research Archive | [seithar.substack.com](https://seithar.substack.com) |
+| Website | [seithar.com](https://seithar.com) |
+| GitHub | [github.com/Mirai8888](https://github.com/Mirai8888) |
+
+────────────────────────────────────────────────────
+Seithar Group Intelligence & Research Division  
+認知作戦 | seithar.com
+────────────────────────────────────────────────────
 
 ---
 
