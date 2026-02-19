@@ -2,7 +2,7 @@
 from __future__ import annotations
 
 import json
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Any
 
 from .chain import HybridChain
@@ -83,8 +83,8 @@ def to_stix_bundle(chain: HybridChain) -> dict[str, Any]:
             "spec_version": "2.1",
             "id": f"{stix_type}--{entity.id}",
             "name": entity.name,
-            "created": datetime.utcnow().isoformat() + "Z",
-            "modified": datetime.utcnow().isoformat() + "Z",
+            "created": datetime.now(timezone.utc).isoformat(),
+            "modified": datetime.now(timezone.utc).isoformat(),
         }
         if hasattr(entity, "description") and entity.description:
             stix_obj["description"] = entity.description
@@ -104,8 +104,8 @@ def to_stix_bundle(chain: HybridChain) -> dict[str, Any]:
             "relationship_type": rel.get("edge_type", "dependency"),
             "source_ref": f"{src_type}--{rel['source']}",
             "target_ref": f"{tgt_type}--{rel['target']}",
-            "created": datetime.utcnow().isoformat() + "Z",
-            "modified": datetime.utcnow().isoformat() + "Z",
+            "created": datetime.now(timezone.utc).isoformat(),
+            "modified": datetime.now(timezone.utc).isoformat(),
         })
 
     return {
