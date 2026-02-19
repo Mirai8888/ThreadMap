@@ -1,7 +1,7 @@
 # MISSION.md -- ThreadMap (信線図)
 
-**Status:** Pre-development (architecture spec complete)
-**Last Updated:** 2026-02-18
+**Status:** MVP Complete
+**Last Updated:** 2026-02-19
 
 ## Purpose
 
@@ -19,18 +19,22 @@ Primary analytical output: defensive intervention priorities ranked by impact, c
 - Integration points defined for HoleSpawn, seithar-cogdef, ThreatMouth
 - Example chain modeled: APT28 2016 election interference
 - Technology stack selected (Python, Pydantic, NetworkX, Click, FastAPI, Cytoscape.js)
+- **MVP Implementation (v0.1.0)**:
+  - `threadmap/models.py` — 7 entity types: Actor, Action, Capability, Infrastructure, Narrative, Target, Effect (Pydantic v2)
+  - `threadmap/chain.py` — HybridChain class: NetworkX directed graph with add_entity(), add_relationship(), get_chain(), get_critical_path(), intervention_score()
+  - `threadmap/analysis.py` — Chain analysis: find_chokepoints(), narrative_threads(), capability_requirements(), intervention_ranking()
+  - `threadmap/io.py` — Import/export: JSON roundtrip, STIX 2.1 bundle, Markdown report generation
+  - `threadmap/examples/apt28_2016.py` — APT28 2016 election interference worked example (11 entities, 9 relationships, all 7 entity types)
+  - `tests/test_threadmap.py` — 24 tests (all passing): models, chain ops, analysis, I/O, APT28 example
+  - `pyproject.toml` — Package configuration
 
-### Blocked (prerequisites)
-- Implementation blocked on domain knowledge prerequisites (see docs/SPEC.md section 12)
-- Requires operational ThreatMouth + stable HoleSpawn network profiling
-- Requires operator study of 20+ real APT campaign reports
-
-### Queued (post-prerequisites)
-1. MVP: Pydantic models, YAML chain serialization, CLI validate/analyze
-2. Template library: 5+ chains from public threat intelligence
+### Queued (post-MVP)
+1. Template library: 5+ chains from public threat intelligence
+2. CLI interface (Click): validate, analyze, export commands
 3. Framework integration: ATT&CK STIX loader, DISARM matrix loader
-4. Visualization: Cytoscape.js web frontend
-5. Advanced: cross-chain coverage scoring, LLM-assisted chain construction
+4. HoleSpawn/ThreatMouth/seithar-cogdef integrations
+5. Visualization: Cytoscape.js web frontend
+6. Advanced: cross-chain coverage scoring, LLM-assisted chain construction
 
 ## Ecosystem Role
 
@@ -49,10 +53,11 @@ ThreadMap is the composition layer. It does not collect intelligence (ThreatMout
 
 | Date | Change |
 |------|--------|
+| 2026-02-19 | MVP v0.1.0: models, chain, analysis, I/O, APT28 example, 24 tests |
 | 2026-02-18 | Architecture spec v0.2.0 (docs/SPEC.md) |
 | 2026-02-18 | MISSION.md created |
 | 2026-02-08 | Initial conceptual README |
 
 ## Dependencies
 
-Python 3.11+, Pydantic v2, NetworkX, Click, PyYAML, Rich. See docs/SPEC.md section 11 for full list.
+Python 3.11+, Pydantic v2, NetworkX, PyYAML, Rich. See docs/SPEC.md section 11 for full list.

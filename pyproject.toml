@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.backends._legacy:_Backend"
+
+[project]
+name = "threadmap"
+version = "0.1.0"
+description = "Hybrid operation chain modeling and analysis"
+requires-python = ">=3.11"
+dependencies = [
+    "pydantic>=2.0",
+    "networkx>=3.0",
+    "pyyaml>=6.0",
+    "rich>=13.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0"]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["threadmap*"]
